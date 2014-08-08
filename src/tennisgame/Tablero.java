@@ -35,13 +35,13 @@ public class Tablero extends javax.swing.JFrame {
     
     
     public final void nombre_Jugadores(){
-        nombreJugador1= JOptionPane.showInputDialog("Player Name 1", "Escribe tu nombre"); 
-        nombreJugador2= JOptionPane.showInputDialog("Player Name 2", "Escribe el nombre de tu oponente");
+        nombreJugador1= JOptionPane.showInputDialog("Nombre Jugador1"); 
+        nombreJugador2= JOptionPane.showInputDialog("Nombre Jugador1");
     }  
     
      
-    public void insertarDatosEnTabla(String [] d){
-        tablam.addRow(d);
+    public void insertarDatosEnTabla(String [] datoComlumna){
+        tablam.addRow(datoComlumna);
     }
     
 
