@@ -6,10 +6,6 @@
 
 package tennisgame;
 
-import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,14 +23,14 @@ public class Tablero extends javax.swing.JFrame {
     String nombreJugador1;
     String nombreJugador2;
     public Tablero() {
+          nombre_Jugadores();
         initComponents();
-        //JOptionPane.showMessageDialog(this,"Welcome to play tennis");
-        //nombre_Jugadores();
+      
         tablam = new DefaultTableModel();
-        tablam.addColumn("Jugador 1");
-        tablam.addColumn("Jugador 2");
+        tablam.addColumn(nombreJugador1);
+        tablam.addColumn(nombreJugador2);
         tablam.addColumn("Score");
-        this.jTable1.setModel(tablam);
+        this.marcadorTabla.setModel(tablam);
     }
     
     
@@ -60,11 +56,11 @@ public class Tablero extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        marcadorTabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        marcadorTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -75,12 +71,12 @@ public class Tablero extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        marcadorTabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                marcadorTablaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(marcadorTabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,27 +98,27 @@ public class Tablero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void marcadorTablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_marcadorTablaMouseClicked
        String h;
         String j;
         String k;
-        String f[]=new String[3];
+        String arregloIdioma[]=new String[3];
         int d[]=new int[2];
-        int row = jTable1.getSelectedRow();
+        int columna = marcadorTabla.getSelectedRow();
             
 
-        for(int z=tablam.getRowCount() -1; z>=row; z--){
+        for(int z=tablam.getRowCount() -1; z>=columna; z--){
         tablam.removeRow(z);
         }
         
         int t=tablam.getRowCount()-1;
-         h=(f[0]=jTable1.getValueAt(t, 0).toString());
-            j=(f[1]=jTable1.getValueAt(t, 1).toString());
-            k=(f[2]=jTable1.getValueAt(t, 2).toString());
+         h=(arregloIdioma[0]=marcadorTabla.getValueAt(t, 0).toString());
+            j=(arregloIdioma[1]=marcadorTabla.getValueAt(t, 1).toString());
+            k=(arregloIdioma[2]=marcadorTabla.getValueAt(t, 2).toString());
             d[0]=Integer.parseInt(h);
             d[1]=Integer.parseInt(j);
             
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_marcadorTablaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -131,7 +127,7 @@ public class Tablero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable marcadorTabla;
     // End of variables declaration//GEN-END:variables
 
 }
